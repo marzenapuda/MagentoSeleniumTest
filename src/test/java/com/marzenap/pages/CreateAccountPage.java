@@ -1,5 +1,6 @@
 package com.marzenap.pages;
 
+import com.marzenap.models.Customer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,12 +33,28 @@ public class CreateAccountPage {
     private WebElement submitButton;
 
 
-    public LoggedUserPage fillNewAccountForm(String firstName,String lastName,String email,String password){
+    public void fillFirstName(String firstName){
         firstNameInput.sendKeys(firstName);
+    }
+    public void fillLastName(String lastName){
         lastNameInput.sendKeys(lastName);
+    }
+    public void fillEmail(String email){
         emailInput.sendKeys(email);
+    }
+    public void fillPassword(String password){
         passwordInput.sendKeys(password);
+    }
+    public void fillConfirmPassword(String password){
         confirmPasswordInput.sendKeys(password);
+    }
+
+    public LoggedUserPage fillNewAccountForm(Customer customer){
+        fillFirstName(customer.getFirstName());
+        fillLastName(customer.getLastName());
+        fillEmail(customer.getEmail());
+        fillPassword(customer.getPassword());
+        fillConfirmPassword(customer.getPassword());
         submitButton.click();
         return new LoggedUserPage(driver);
     }

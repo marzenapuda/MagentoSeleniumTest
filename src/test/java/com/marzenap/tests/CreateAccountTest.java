@@ -16,8 +16,9 @@ public class CreateAccountTest extends BaseTest{
         String randomEmail = "email" + (int) (Math.random() * 100) + "@email.com";
         Customer customer = new Customer();
         customer.setEmail(randomEmail);
-        WebElement contactInformation = new PageTopPanel(driver).goToCreateAccountPage()
-                .fillNewAccountForm(customer.getFirstName(), customer.getLastName(), customer.getEmail(), customer.getPassword())
+        WebElement contactInformation = new PageTopPanel(driver)
+                .goToCreateAccountPage()
+                .fillNewAccountForm(customer)
                 .getContactInformation();
 
         Assert.assertTrue(contactInformation.getText().contains(customer.getFirstName()));
