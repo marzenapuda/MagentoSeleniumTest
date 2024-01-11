@@ -1,9 +1,11 @@
 package com.marzenap.pages;
 
+import com.marzenap.models.Customer;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class LoggedUserPage {
 
@@ -18,5 +20,9 @@ public class LoggedUserPage {
 
     public WebElement getContactInformation() {
         return contactInformation;
+    }
+
+    public void checkContactInformation(Customer customer){
+        Assert.assertTrue(contactInformation.getText().contains(customer.getFirstName()));
     }
 }

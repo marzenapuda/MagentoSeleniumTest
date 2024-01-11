@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class CreateAccountPage {
 
@@ -32,32 +33,49 @@ public class CreateAccountPage {
     @FindBy(xpath = "//button[@class='action submit primary']")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//div[@class='message-error error message']")
+    private WebElement alert;
 
-    public void fillFirstName(String firstName){
-        firstNameInput.sendKeys(firstName);
+
+
+    public CreateAccountPage fillFirstName(Customer customer){
+        firstNameInput.sendKeys(customer.getFirstName());
+        return this;
     }
-    public void fillLastName(String lastName){
-        lastNameInput.sendKeys(lastName);
+    public CreateAccountPage fillLastName(Customer customer){
+        lastNameInput.sendKeys(customer.getLastName());
+        return this;
     }
-    public void fillEmail(String email){
-        emailInput.sendKeys(email);
+    public CreateAccountPage fillEmail(Customer customer){
+        emailInput.sendKeys(customer.getEmail());
+        return this;
     }
-    public void fillPassword(String password){
-        passwordInput.sendKeys(password);
+    public CreateAccountPage fillPassword(Customer customer){
+        passwordInput.sendKeys(customer.getPassword());
+        return this;
     }
-    public void fillConfirmPassword(String password){
-        confirmPasswordInput.sendKeys(password);
+    public CreateAccountPage fillConfirmPassword(Customer customer){
+        confirmPasswordInput.sendKeys(customer.getPassword());
+        return this;
     }
 
-    public LoggedUserPage fillNewAccountForm(Customer customer){
-        fillFirstName(customer.getFirstName());
-        fillLastName(customer.getLastName());
-        fillEmail(customer.getEmail());
-        fillPassword(customer.getPassword());
-        fillConfirmPassword(customer.getPassword());
+    public LoggedUserPage submitValid(){
         submitButton.click();
         return new LoggedUserPage(driver);
+
     }
+
+    public CreateAccountPage submitInvalid(){
+        submitButton.click();
+        return this;
+    }
+
+
+    public void checkAlert(){
+        Assert.assertTrue(alert.getText().contains("There is already an account with this email address."));
+    }
+
+
 }
 
 

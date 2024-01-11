@@ -16,12 +16,33 @@ public class CreateAccountTest extends BaseTest{
         String randomEmail = "email" + (int) (Math.random() * 100) + "@email.com";
         Customer customer = new Customer();
         customer.setEmail(randomEmail);
-        WebElement contactInformation = new PageTopPanel(driver)
+        new PageTopPanel(driver)
                 .goToCreateAccountPage()
-                .fillNewAccountForm(customer)
-                .getContactInformation();
+                .fillFirstName(customer)
+                .fillLastName(customer)
+                .fillEmail(customer)
+                .fillPassword(customer)
+                .fillConfirmPassword(customer)
+                .submitValid()
+                .checkContactInformation(customer);
 
-        Assert.assertTrue(contactInformation.getText().contains(customer.getFirstName()));
+    }
+
+    @Test
+    public void createAccountExistingEmail(){
+        Customer customer = new Customer();
+        customer.setEmail("email@email.com");
+        new PageTopPanel(driver)
+                .goToCreateAccountPage()
+                .fillFirstName(customer)
+                .fillLastName(customer)
+                .fillEmail(customer)
+                .fillPassword(customer)
+                .fillConfirmPassword(customer)
+                .submitInvalid()
+                .checkAlert();
+
+
     }
 
 
