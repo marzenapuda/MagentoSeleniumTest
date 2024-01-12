@@ -4,7 +4,7 @@ public class Customer {
 
     private String firstName = "firstName";
     private String lastName = "lastName";
-    private String email = "email@email.com";
+    private static String email = "email@email.com";
 
     private String password = "Password1";
 

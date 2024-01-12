@@ -31,7 +31,7 @@ public class CreateAccountTest extends BaseTest{
     @Test
     public void createAccountExistingEmail(){
         Customer customer = new Customer();
-        customer.setEmail("email@email.com");
+//        customer.setEmail("email@email.com");
         new PageTopPanel(driver)
                 .goToCreateAccountPage()
                 .fillFirstName(customer)
