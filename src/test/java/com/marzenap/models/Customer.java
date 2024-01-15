@@ -10,6 +10,8 @@ public class Customer {
 
     private String confirmPassword = password;
 
+    private String product = "jacket";
+
     public String getFirstName() {
         return firstName;
     }
@@ -48,5 +50,13 @@ public class Customer {
 
     public void setConformPassword(String conformPassword) {
         this.confirmPassword = conformPassword;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
     }
 }
