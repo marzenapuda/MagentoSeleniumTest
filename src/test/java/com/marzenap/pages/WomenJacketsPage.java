@@ -24,6 +24,9 @@ public class WomenJacketsPage {
     @FindBy(xpath = "//span[@class='filter-value']")
     private WebElement colorFilterStatus;
 
+    @FindBy(xpath = "//img[@alt='Juno Jacket-XS-Blue']")
+    private WebElement junoJacketProduct;
+
 
 
 
@@ -34,6 +37,11 @@ public class WomenJacketsPage {
     public WomenJacketsPage selectBlueFilter(){
         blueColorFilterOption.click();
         return this;
+    }
+
+    public ProductPage goToProductPage(){
+        junoJacketProduct.click();
+        return new ProductPage(driver);
     }
 
 

@@ -5,9 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Wait;
-
-import javax.swing.*;
 
 public class PageCategoriesPanel {
 
@@ -27,7 +24,7 @@ public class PageCategoriesPanel {
     @FindBy(xpath = "//a[@id='ui-id-11']")
     private WebElement jacketsCategoryButton;
 
-    public WomenJacketsPage gotoWomensJackets(){
+    public WomenJacketsPage goToWomensJackets(){
         new Actions(driver).moveToElement(womenCategoryButton).perform();
         new Actions(driver).moveToElement(topsCategoryButton).perform();
         new Actions(driver).moveToElement(jacketsCategoryButton).perform();
