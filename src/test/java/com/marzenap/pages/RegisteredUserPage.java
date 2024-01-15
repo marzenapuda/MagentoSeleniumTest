@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class LoggedUserPage {
+public class RegisteredUserPage {
 
     private WebDriver driver;
-    public LoggedUserPage(WebDriver driver) {
+    public RegisteredUserPage(WebDriver driver) {
         PageFactory.initElements(driver,this);
         this.driver = driver;
     }

@@ -21,8 +21,14 @@ public class PageTopPanel {
     @FindBy(xpath = "//li[@class='authorization-link']")
     private WebElement signInButton;
 
-    @FindBy(xpath = "//span[@class='logged-in']")
+    @FindBy(xpath = "//div[@class='panel header']//span[@class='logged-in' and contains(.,'Welcome')]")
     private WebElement welcomeMessage;
+
+    @FindBy(xpath = "//span[@class='customer-name']")
+    private WebElement customerDropdown;
+
+    @FindBy(xpath = "//a[contains(.,'Sign Out')]")
+    private WebElement signOutButton;
 
     public CreateAccountPage goToCreateAccountPage(){
         createAccountButton.click();
@@ -34,8 +40,20 @@ public class PageTopPanel {
         return new SignInPage(driver);
     }
 
-    public void checkWelcomeMessage(Customer customer){
+    public PageTopPanel signOut(){
+        customerDropdown.click();
+        signOutButton.click();
+        return new PageTopPanel(driver);
+    }
+
+    public PageTopPanel checkWelcomeMessage(Customer customer){
         Assert.assertTrue(welcomeMessage.getText().contains(customer.getFirstName()));
+        return new PageTopPanel(driver);
+    }
+
+    public PageTopPanel checkMessageAfterLogout(){
+        Assert.assertTrue(signOutButton.getText().contains("Sign In"));
+        return new PageTopPanel(driver);
     }
 
 }

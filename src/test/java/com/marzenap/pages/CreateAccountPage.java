@@ -59,9 +59,9 @@ public class CreateAccountPage {
         return this;
     }
 
-    public LoggedUserPage submitValid(){
+    public RegisteredUserPage submitValid(){
         submitButton.click();
-        return new LoggedUserPage(driver);
+        return new RegisteredUserPage(driver);
 
     }
 
