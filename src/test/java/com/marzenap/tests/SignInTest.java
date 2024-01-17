@@ -14,6 +14,7 @@ public class SignInTest extends BaseTest{
                 .fillEmail(customer)
                 .fillPassword(customer)
                 .clickSignInButton()
+                .pageTopPanel
                 .checkWelcomeMessage(customer)
                 .signOut()
                 .checkMessageAfterLogout();

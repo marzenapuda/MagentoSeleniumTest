@@ -34,9 +34,9 @@ public class SignInPage {
         return this;
     }
 
-    public PageTopPanel clickSignInButton(){
+    public MainPage clickSignInButton(){
         signInButton.click();
-        return new PageTopPanel(driver);
+        return new MainPage(driver);
     }
 
 }

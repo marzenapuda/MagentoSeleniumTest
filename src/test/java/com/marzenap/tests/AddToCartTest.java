@@ -3,12 +3,12 @@ package com.marzenap.tests;
 import com.marzenap.pages.PageCategoriesPanel;
 import org.testng.annotations.Test;
 
-public class AddToBasketTest extends BaseTest{
+public class AddToCartTest extends BaseTest{
 
 
 
     @Test
-    public void addProductToBasketTest(){
+    public void addProductToCartTest(){
         new PageCategoriesPanel(driver)
                 .goToWomensJackets()
                 .selectColorFilterTab()
