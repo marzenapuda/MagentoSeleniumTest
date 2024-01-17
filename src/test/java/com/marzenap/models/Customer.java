@@ -8,7 +8,7 @@ public class Customer {
     private String password = "Password1";
     private String confirmPassword = password;
     private String company = "Abc";
-    private String streetAdress = "Krakowska 1";
+    private String streetAddress = "Krakowska 1";
     private String city = "Kraków";
     private String state = "małopolskie";
     private String postalCode = "12-345";
@@ -56,14 +56,6 @@ public class Customer {
         this.product = product;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
     public String getCompany() {
         return company;
     }
@@ -72,12 +64,12 @@ public class Customer {
         this.company = company;
     }
 
-    public String getStreetAdress() {
-        return streetAdress;
+    public String getStreetAddress() {
+        return streetAddress;
     }
 
-    public void setStreetAdress(String streetAdress) {
-        this.streetAdress = streetAdress;
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getCity() {

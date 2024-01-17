@@ -3,14 +3,15 @@ package com.marzenap.tests;
 import com.marzenap.pages.PageCategoriesPanel;
 import org.testng.annotations.Test;
 
-public class ColorFilterTest extends BaseTest{
+public class ColorFilterTest extends BaseTest {
     @Test
-    public void filterByColorTest(){
+    public void filterByColorTest() {
+
         new PageCategoriesPanel(driver)
-                .goToWomensJackets()
+                .goToWomenJackets()
                 .selectColorFilterTab()
                 .selectBlueFilter()
                 .checkFilterStatus();
 
-
-}}
+    }
+}

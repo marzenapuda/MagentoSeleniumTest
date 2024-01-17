@@ -13,30 +13,29 @@ import java.time.Duration;
 public class PaymentMethodsPage {
 
     private WebDriver driver;
+
     public PaymentMethodsPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     @FindBy(xpath = "//button[@class='action primary checkout']")
     private WebElement placeOrderButton;
-
     @FindBy(xpath = "//span[@data-ui-id='page-title-wrapper']")
     private WebElement orderConfirmationMessage;
-
     @FindBy(xpath = "//div[@class='loading-mask']")
     private WebElement overlay;
 
 
-    public PaymentMethodsPage placeOrder(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public PaymentMethodsPage placeOrder() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.invisibilityOf(overlay));
         placeOrderButton.click();
         return this;
     }
 
-    public PaymentMethodsPage checkConfirmation(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    public PaymentMethodsPage checkConfirmation() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.invisibilityOf(overlay));
         Assert.assertTrue(orderConfirmationMessage.getText().contains("Thank you for your purchase!"));
         return this;

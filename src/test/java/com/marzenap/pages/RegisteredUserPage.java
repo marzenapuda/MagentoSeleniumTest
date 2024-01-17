@@ -10,19 +10,17 @@ import org.testng.Assert;
 public class RegisteredUserPage {
 
     private WebDriver driver;
+
     public RegisteredUserPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     @FindBy(xpath = "//div[@class='box-content']/p")
     private WebElement contactInformation;
 
-    public WebElement getContactInformation() {
-        return contactInformation;
-    }
 
-    public void checkContactInformation(Customer customer){
+    public void checkContactInformation(Customer customer) {
         Assert.assertTrue(contactInformation.getText().contains(customer.getFirstName()));
     }
 }

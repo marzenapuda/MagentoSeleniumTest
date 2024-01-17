@@ -1,18 +1,17 @@
 package com.marzenap.tests;
 
 import com.marzenap.models.Customer;
-import com.marzenap.pages.MainPage;
 import com.marzenap.pages.PageCategoriesPanel;
 import com.marzenap.pages.PageSearchBar;
 import com.marzenap.pages.PageTopPanel;
 import org.testng.annotations.Test;
 
-public class CheckoutTestExistingAccount extends BaseTest{
+public class CheckoutTestExistingAccount extends BaseTest {
 
     @Test
-    public void checkoutTest(){
+    public void checkoutTest() {
         Customer customer = new Customer();
-        //sign in
+
         new PageTopPanel(driver)
                 .goToSignInPage()
                 .fillEmail(customer)
@@ -20,7 +19,7 @@ public class CheckoutTestExistingAccount extends BaseTest{
                 .clickSignInButton();
 
         new PageCategoriesPanel(driver)
-                .goToWomensJackets()
+                .goToWomenJackets()
                 .selectColorFilterTab()
                 .selectBlueFilter()
                 .goToProductPage()
@@ -28,11 +27,11 @@ public class CheckoutTestExistingAccount extends BaseTest{
                 .selectColorBlue()
                 .addToCart();
 
-        //proceed to checkout and fill address form
-        new PageSearchBar(driver).proceedToChcekout()
-
-
-                .goToPaymentMethods().placeOrder().checkConfirmation();
+        new PageSearchBar(driver)
+                .proceedToCheckout()
+                .goToPaymentMethods()
+                .placeOrder()
+                .checkConfirmation();
 
     }
 }

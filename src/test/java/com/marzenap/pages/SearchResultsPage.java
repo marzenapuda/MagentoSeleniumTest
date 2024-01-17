@@ -8,9 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class SearchResultsPage {
-     private WebDriver driver;
+    private WebDriver driver;
+
     public SearchResultsPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
@@ -18,7 +19,7 @@ public class SearchResultsPage {
     private WebElement searchResultInfo;
 
 
-    public SearchResultsPage checkSearchResultInfo(Customer customer){
+    public SearchResultsPage checkSearchResultInfo(Customer customer) {
         Assert.assertTrue(searchResultInfo.getText().contains(customer.getProduct()));
         return this;
     }

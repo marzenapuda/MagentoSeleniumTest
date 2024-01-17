@@ -8,50 +8,39 @@ import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.function.Function;
 
 public class PageSearchBar {
 
     private WebDriver driver;
+
     public PageSearchBar(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     @FindBy(xpath = "//input[@id='search']")
     private WebElement searchField;
-
     @FindBy(xpath = "//button[@class='action search']")
     private WebElement searchButton;
-
-    @FindBy(xpath = "//a[@class='action showcart' and not(span[@class='counter qty _block-content-loading'])]")
-    private WebElement showCartButton;
-
-    @FindBy(xpath = "//a[@class='action showcart active' and not(span[@class='counter qty _block-content-loading'])]")
-    private WebElement showCartActiveButton;
-
     @FindBy(xpath = "//div[a[@class='action showcart active']]//button[@id='top-cart-btn-checkout']")
     private WebElement proceedToCheckoutButton;
-
     @FindBy(xpath = "//div[@data-block='minicart' and not(span[@class='counter qty _block-content-loading'])]")
     private WebElement minicart;
-
     @FindBy(xpath = "//div[@class='message-success success message']")
     private WebElement successAlert;
 
-    public SearchResultsPage performSearch(Customer customer){
+    public SearchResultsPage performSearch(Customer customer) {
         searchField.sendKeys(customer.getProduct());
         searchButton.click();
         return new SearchResultsPage(driver);
     }
 
-    public CheckoutPage proceedToChcekout(){
-
+    public CheckoutPage proceedToCheckout() {
 
         minicart.click();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        WebDriverWait webDriverWait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(3));
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//strong[@class='subtitle empty']")));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 

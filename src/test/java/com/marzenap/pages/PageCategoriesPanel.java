@@ -17,14 +17,12 @@ public class PageCategoriesPanel {
 
     @FindBy(xpath = "//li[@class='level0 nav-2 category-item level-top parent ui-menu-item']")
     private WebElement womenCategoryButton;
-
     @FindBy(xpath = "//li[@class='level1 nav-2-1 category-item first parent ui-menu-item']")
     private WebElement topsCategoryButton;
-
     @FindBy(xpath = "//a[@id='ui-id-11']")
     private WebElement jacketsCategoryButton;
 
-    public WomenJacketsPage goToWomensJackets(){
+    public WomenJacketsPage goToWomenJackets(){
         new Actions(driver).moveToElement(womenCategoryButton).perform();
         new Actions(driver).moveToElement(topsCategoryButton).perform();
         new Actions(driver).moveToElement(jacketsCategoryButton).perform();

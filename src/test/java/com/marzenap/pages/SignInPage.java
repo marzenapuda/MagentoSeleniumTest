@@ -11,32 +11,30 @@ public class SignInPage {
     private WebDriver driver;
 
     public SignInPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     @FindBy(xpath = "//input[@name='login[username]']")
     private WebElement emailInput;
-
-
     @FindBy(xpath = "//input[@name='login[password]']")
-    private WebElement passwordlInput;
-
+    private WebElement passwordInput;
     @FindBy(xpath = "//button[@class='action login primary']")
     private WebElement signInButton;
 
-    public SignInPage fillEmail(Customer customer){
+    public SignInPage fillEmail(Customer customer) {
         emailInput.sendKeys(customer.getEmail());
         return this;
     }
-    public SignInPage fillPassword(Customer customer){
-        passwordlInput.sendKeys(customer.getPassword());
+
+    public SignInPage fillPassword(Customer customer) {
+        passwordInput.sendKeys(customer.getPassword());
         return this;
     }
 
-    public MainPage clickSignInButton(){
+    public PageTopPanel clickSignInButton() {
         signInButton.click();
-        return new MainPage(driver);
+        return new PageTopPanel(driver);
     }
 
 }
