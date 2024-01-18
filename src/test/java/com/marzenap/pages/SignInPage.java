@@ -22,13 +22,13 @@ public class SignInPage {
     @FindBy(xpath = "//button[@class='action login primary']")
     private WebElement signInButton;
 
-    public SignInPage fillEmail(Customer customer) {
-        emailInput.sendKeys(customer.getEmail());
+    public SignInPage fillEmail(String email) {
+        emailInput.sendKeys(email);
         return this;
     }
 
-    public SignInPage fillPassword(Customer customer) {
-        passwordInput.sendKeys(customer.getPassword());
+    public SignInPage fillPassword(String password) {
+        passwordInput.sendKeys(password);
         return this;
     }
 

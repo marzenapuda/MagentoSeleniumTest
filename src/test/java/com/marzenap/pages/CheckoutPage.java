@@ -36,55 +36,55 @@ public class CheckoutPage {
     private WebElement postcodeInput;
     @FindBy(xpath = "//input[@name='telephone']")
     private WebElement phoneInput;
-    @FindBy(xpath = "//button[@class='button action continue primary' and not (div[@class='loading-mask'])]")
+    @FindBy(xpath = "//button[@class='button action continue primary' and not(div[@class='loading-mask'])]")
     private WebElement nextButton;
     @FindBy(xpath = "//div[@class='loading-mask']")
     private WebElement overlay;
 
-    public CheckoutPage checkFirstName(Customer customer) {
-        Assert.assertEquals(firstNameInput.getAttribute("value"), customer.getFirstName());
+    public CheckoutPage checkFirstName(String firstName) {
+        Assert.assertEquals(firstNameInput.getAttribute("value"), firstName);
         return this;
     }
 
-    public CheckoutPage checkLastName(Customer customer) {
-        Assert.assertEquals(lastNameInput.getAttribute("value"), customer.getLastName());
+    public CheckoutPage checkLastName(String lastName) {
+        Assert.assertEquals(lastNameInput.getAttribute("value"), lastName);
         return this;
     }
 
-    public CheckoutPage fillCompany(Customer customer) {
-        companyInput.sendKeys(customer.getCompany());
+    public CheckoutPage fillCompany(String company) {
+        companyInput.sendKeys(company);
         return this;
     }
 
-    public CheckoutPage fillStreetAddress(Customer customer) {
-        streetInput.sendKeys(customer.getStreetAddress());
+    public CheckoutPage fillStreetAddress(String streetAddress) {
+        streetInput.sendKeys(streetAddress);
         return this;
     }
 
-    public CheckoutPage fillCity(Customer customer) {
-        cityInput.sendKeys(customer.getCity());
+    public CheckoutPage fillCity(String city) {
+        cityInput.sendKeys(city);
         return this;
     }
 
-    public CheckoutPage selectCountry(Customer customer) {
+    public CheckoutPage selectCountry(String country) {
         Select drpCountry = new Select(countrySelect);
-        drpCountry.selectByVisibleText(customer.getCountry());
+        drpCountry.selectByVisibleText(country);
         return this;
     }
 
-    public CheckoutPage selectState(Customer customer) {
+    public CheckoutPage selectState(String state) {
         Select drpState = new Select(stateSelect);
-        drpState.selectByVisibleText(customer.getState());
+        drpState.selectByVisibleText(state);
         return this;
     }
 
-    public CheckoutPage fillPostalCode(Customer customer) {
-        postcodeInput.sendKeys(customer.getPostalCode());
+    public CheckoutPage fillPostalCode(String postalCode) {
+        postcodeInput.sendKeys(postalCode);
         return this;
     }
 
-    public CheckoutPage fillPhone(Customer customer) {
-        phoneInput.sendKeys(customer.getPhone());
+    public CheckoutPage fillPhone(String phone) {
+        phoneInput.sendKeys(phone);
         return this;
     }
 

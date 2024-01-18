@@ -6,7 +6,7 @@ import com.marzenap.pages.PageSearchBar;
 import com.marzenap.pages.PageTopPanel;
 import org.testng.annotations.Test;
 
-public class CheckoutTestExistingAccount extends BaseTest {
+public class CheckoutExistingAccountTest extends BaseTest {
 
     @Test
     public void checkoutTest() {
@@ -14,8 +14,8 @@ public class CheckoutTestExistingAccount extends BaseTest {
 
         new PageTopPanel(driver)
                 .goToSignInPage()
-                .fillEmail(customer)
-                .fillPassword(customer)
+                .fillEmail(customer.getEmail())
+                .fillPassword(customer.getPassword())
                 .clickSignInButton();
 
         new PageCategoriesPanel(driver)

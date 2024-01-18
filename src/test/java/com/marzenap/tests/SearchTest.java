@@ -9,7 +9,7 @@ public class SearchTest extends BaseTest {
     public void searchTest() {
         Customer customer = new Customer();
         new PageSearchBar(driver)
-                .performSearch(customer)
-                .checkSearchResultInfo(customer);
+                .performSearch(customer.getProduct())
+                .checkSearchResultInfo(customer.getProduct());
     }
 }

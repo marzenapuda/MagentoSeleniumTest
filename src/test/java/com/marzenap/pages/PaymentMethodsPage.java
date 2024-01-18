@@ -37,7 +37,7 @@ public class PaymentMethodsPage {
     public PaymentMethodsPage checkConfirmation() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.invisibilityOf(overlay));
-        Assert.assertTrue(orderConfirmationMessage.getText().contains("Thank you for your purchase!"));
+        Assert.assertTrue(orderConfirmationMessage.getText().contains("Thank you for your purchase!"),"Confirmation message not displayed");
         return this;
     }
 }

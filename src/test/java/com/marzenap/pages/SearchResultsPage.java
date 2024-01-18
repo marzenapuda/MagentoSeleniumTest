@@ -19,8 +19,8 @@ public class SearchResultsPage {
     private WebElement searchResultInfo;
 
 
-    public SearchResultsPage checkSearchResultInfo(Customer customer) {
-        Assert.assertTrue(searchResultInfo.getText().contains(customer.getProduct()));
+    public SearchResultsPage checkSearchResultInfo(String product) {
+        Assert.assertTrue(searchResultInfo.getText().contains(product),"Search results do not contain product name");
         return this;
     }
 }

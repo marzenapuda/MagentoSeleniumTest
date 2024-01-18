@@ -6,7 +6,7 @@ import com.marzenap.pages.PageSearchBar;
 import com.marzenap.pages.PageTopPanel;
 import org.testng.annotations.Test;
 
-public class CheckoutTestNewAccount extends BaseTest {
+public class CheckoutNewAccountTest extends BaseTest {
 
     @Test(dependsOnMethods = "com.marzenap.tests.CreateAccountTest.createAccount")
     public void checkoutTest() {
@@ -14,8 +14,8 @@ public class CheckoutTestNewAccount extends BaseTest {
 
         new PageTopPanel(driver)
                 .goToSignInPage()
-                .fillEmail(customer)
-                .fillPassword(customer)
+                .fillEmail(customer.getEmail())
+                .fillPassword(customer.getPassword())
                 .clickSignInButton();
 
         new PageCategoriesPanel(driver)
@@ -29,15 +29,15 @@ public class CheckoutTestNewAccount extends BaseTest {
 
         new PageSearchBar(driver)
                 .proceedToCheckout()
-                .checkFirstName(customer)
-                .checkLastName(customer)
-                .fillCompany(customer)
-                .fillPostalCode(customer)
-                .fillStreetAddress(customer)
-                .fillCity(customer)
-                .selectCountry(customer)
-                .selectState(customer)
-                .fillPhone(customer)
+                .checkFirstName(customer.getFirstName())
+                .checkLastName(customer.getLastName())
+                .fillCompany(customer.getCompany())
+                .fillPostalCode(customer.getPostalCode())
+                .fillStreetAddress(customer.getStreetAddress())
+                .fillCity(customer.getCity())
+                .selectCountry(customer.getCountry())
+                .selectState(customer.getState())
+                .fillPhone(customer.getPhone())
                 .goToPaymentMethods()
                 .placeOrder()
                 .checkConfirmation();

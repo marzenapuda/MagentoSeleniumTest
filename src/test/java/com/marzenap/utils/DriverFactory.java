@@ -8,16 +8,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class DriverFactory {
 
     public static WebDriver getDriver(String browserName){
-        switch (browserName){
-            case "chrome":
-                return new ChromeDriver();
-
-            case "firefox":
-                return new FirefoxDriver();
-
-            case "edge":
-                return new EdgeDriver();
-        }
-        return new ChromeDriver();
+        return switch (browserName) {
+            case "chrome" -> new ChromeDriver();
+            case "firefox" -> new FirefoxDriver();
+            case "edge" -> new EdgeDriver();
+            default -> new ChromeDriver();
+        };
     }
 }

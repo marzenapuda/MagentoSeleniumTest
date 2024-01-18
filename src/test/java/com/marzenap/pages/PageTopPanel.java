@@ -42,13 +42,13 @@ public class PageTopPanel {
         return new PageTopPanel(driver);
     }
 
-    public PageTopPanel checkWelcomeMessage(Customer customer) {
-        Assert.assertTrue(welcomeMessage.getText().contains(customer.getFirstName()));
+    public PageTopPanel checkWelcomeMessage(String firstName) {
+        Assert.assertTrue(welcomeMessage.getText().contains(firstName));
         return this;
     }
 
     public void checkMessageAfterLogout() {
-        Assert.assertTrue(signInButton.getText().contains("Sign In"));
+        Assert.assertTrue(signInButton.getText().contains("Sign In"),"No 'Sign In' button after logout");
     }
 
 }

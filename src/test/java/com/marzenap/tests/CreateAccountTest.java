@@ -13,13 +13,13 @@ public class CreateAccountTest extends BaseTest {
         customer.setEmail(randomEmail);
         new PageTopPanel(driver)
                 .goToCreateAccountPage()
-                .fillFirstName(customer)
-                .fillLastName(customer)
-                .fillEmail(customer)
-                .fillPassword(customer)
-                .fillConfirmPassword(customer)
+                .fillFirstName(customer.getFirstName())
+                .fillLastName(customer.getLastName())
+                .fillEmail(customer.getEmail())
+                .fillPassword(customer.getPassword())
+                .fillConfirmPassword(customer.getPassword())
                 .submitValid()
-                .checkContactInformation(customer);
+                .checkContactInformation(customer.getFirstName());
 
     }
 
@@ -29,11 +29,11 @@ public class CreateAccountTest extends BaseTest {
         customer.setEmail("email@email.com");
         new PageTopPanel(driver)
                 .goToCreateAccountPage()
-                .fillFirstName(customer)
-                .fillLastName(customer)
-                .fillEmail(customer)
-                .fillPassword(customer)
-                .fillConfirmPassword(customer)
+                .fillFirstName(customer.getFirstName())
+                .fillLastName(customer.getLastName())
+                .fillEmail(customer.getEmail())
+                .fillPassword(customer.getPassword())
+                .fillConfirmPassword(customer.getPassword())
                 .submitInvalid()
                 .checkAlert();
 

@@ -32,28 +32,28 @@ public class CreateAccountPage {
     private WebElement alert;
 
 
-    public CreateAccountPage fillFirstName(Customer customer) {
-        firstNameInput.sendKeys(customer.getFirstName());
+    public CreateAccountPage fillFirstName(String firstName) {
+        firstNameInput.sendKeys(firstName);
         return this;
     }
 
-    public CreateAccountPage fillLastName(Customer customer) {
-        lastNameInput.sendKeys(customer.getLastName());
+    public CreateAccountPage fillLastName(String lastName) {
+        lastNameInput.sendKeys(lastName);
         return this;
     }
 
-    public CreateAccountPage fillEmail(Customer customer) {
-        emailInput.sendKeys(customer.getEmail());
+    public CreateAccountPage fillEmail(String email) {
+        emailInput.sendKeys(email);
         return this;
     }
 
-    public CreateAccountPage fillPassword(Customer customer) {
-        passwordInput.sendKeys(customer.getPassword());
+    public CreateAccountPage fillPassword(String password) {
+        passwordInput.sendKeys(password);
         return this;
     }
 
-    public CreateAccountPage fillConfirmPassword(Customer customer) {
-        confirmPasswordInput.sendKeys(customer.getPassword());
+    public CreateAccountPage fillConfirmPassword(String password) {
+        confirmPasswordInput.sendKeys(password);
         return this;
     }
 
@@ -69,7 +69,7 @@ public class CreateAccountPage {
 
 
     public void checkAlert() {
-        Assert.assertTrue(alert.getText().contains("There is already an account with this email address."));
+        Assert.assertTrue(alert.getText().contains("There is already an account with this email address."),"Alert message different than expected");
     }
 
 }

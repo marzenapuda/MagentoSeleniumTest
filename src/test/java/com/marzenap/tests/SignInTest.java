@@ -11,10 +11,10 @@ public class SignInTest extends BaseTest{
         Customer customer = new Customer();
         new PageTopPanel(driver)
                 .goToSignInPage()
-                .fillEmail(customer)
-                .fillPassword(customer)
+                .fillEmail(customer.getEmail())
+                .fillPassword(customer.getPassword())
                 .clickSignInButton()
-                .checkWelcomeMessage(customer)
+                .checkWelcomeMessage(customer.getFirstName())
                 .signOut()
                 .checkMessageAfterLogout();
     }

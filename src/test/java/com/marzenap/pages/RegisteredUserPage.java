@@ -20,7 +20,7 @@ public class RegisteredUserPage {
     private WebElement contactInformation;
 
 
-    public void checkContactInformation(Customer customer) {
-        Assert.assertTrue(contactInformation.getText().contains(customer.getFirstName()));
+    public void checkContactInformation(String firstName) {
+        Assert.assertTrue(contactInformation.getText().contains(firstName),"No first name on registered user page");
     }
 }

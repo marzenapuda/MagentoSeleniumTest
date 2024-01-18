@@ -29,8 +29,8 @@ public class PageSearchBar {
     @FindBy(xpath = "//div[@class='message-success success message']")
     private WebElement successAlert;
 
-    public SearchResultsPage performSearch(Customer customer) {
-        searchField.sendKeys(customer.getProduct());
+    public SearchResultsPage performSearch(String product) {
+        searchField.sendKeys(product);
         searchButton.click();
         return new SearchResultsPage(driver);
     }
@@ -44,7 +44,7 @@ public class PageSearchBar {
         webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//strong[@class='subtitle empty']")));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        Assert.assertTrue(successAlert.isDisplayed());
+        Assert.assertTrue(successAlert.isDisplayed(),"Alert not displayed");
         minicart.click();
 
         proceedToCheckoutButton.click();

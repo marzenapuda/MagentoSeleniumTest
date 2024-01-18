@@ -42,7 +42,7 @@ public class WomenJacketsPage {
 
 
     public void checkFilterStatus() {
-        Assert.assertEquals(colorFilterStatus.getText(), "Blue");
+        Assert.assertEquals(colorFilterStatus.getText(), "Blue","Filter status do not contain chosen color");
     }
 
 

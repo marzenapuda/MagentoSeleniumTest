@@ -40,7 +40,7 @@ public class ProductPage {
     }
 
     public void checkMessage() {
-        Assert.assertTrue(successfullyAddedToCartMessage.isDisplayed());
+        Assert.assertTrue(successfullyAddedToCartMessage.isDisplayed(),"Alert not displayed");
     }
 
 }
